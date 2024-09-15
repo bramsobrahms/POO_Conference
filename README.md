@@ -1,13 +1,20 @@
 # POO_Conference
-- Create classes Abstract
-- Create class Interface
-- Create class Enum
-- Create class Unit Test
+<ul>
+  <li>Create classes Abstract</li>
+  <li>Create class Interface</li>
+  <li>Create class Enum</li>
+  <li>Create class Unit Test</li>
+</ul>
 
-<h3>I used in this app</h3>
-- Gradle
-- Java 21
+<h3>Software</h3>
+<ul>
+  <li>IntelliJ</li>
+  <li>Gradle</li>
+  <li>Java 21</li>
+</ul>
 
-<h3>I used in this app</h3>
-- Junit5
-- Jackson DataFormat
+<h3>Dependencies</h3>
+<ul>
+  <li>Junit5</li>
+  <li>Jackson DataFormat</li>
+</ul>
