@@ -67,12 +67,14 @@ class ConferenceTest {
 
     @Test
     void testApplyWithTopic() {
+        //Test if the guest can apply when they have required topic
         assertTrue(conferenceWithTopic.apply(guestWithTopic));
         assertTrue(conferenceWithTopic.getGuests().contains(guestWithTopic));
     }
 
     @Test
     void testApplyWithoutTopic() {
+        //Test if the guest can apply to a conference without a specific topic
         assertTrue(conferenceWithoutTopic.apply(guestWithTopic));
         assertTrue(conferenceWithoutTopic.getGuests().contains(guestWithTopic));
     }
