@@ -85,7 +85,7 @@ public class Conference extends Event implements Applicable{
             guests.add(g);
             return true;
         } else {
-            throw new MissingTopicException("The guest doesn't have require this topic: " + topic);
+            throw new MissingTopicException("The guest doesn't have required this topic: " + topic);
         }
     }
 }
