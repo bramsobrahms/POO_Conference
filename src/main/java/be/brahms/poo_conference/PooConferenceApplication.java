@@ -69,22 +69,35 @@ public class PooConferenceApplication {
             e.printStackTrace();
         }
 
+        /**
+         * This class demonstrates how to serialize a `Conference` object to JSON format using Jackson.
+         * It adds guest details to a conference, converts the object to JSON format, and writes it to a file.
+         */
+
         try {
+            // Create a list of guests
             ArrayList<Guest> guests = new ArrayList<>();
+            // Add guest details to the list
             guests.add(new Guest("Bob", "Sull", new ArrayList<>(List.of(Topic.ENVIRONMENT, Topic.ENERGY))));
             guests.add(new Guest("Boby", "Skull", new ArrayList<>(List.of(Topic.IT, Topic.ENERGY))));
 
+            // Create a Conference object with title, date, topic, price, and list of guests
             Conference conf = new Conference("Conference Energy", "2024-09-03T18:00:00", Topic.ENVIRONMENT, 0d, guests);
 
+            // Initialize the Jackson ObjectMapper for handling JSON
             ObjectMapper objectMapper = new ObjectMapper();
 
+            // Register the JavaTimeModule to handle Java 8 and more date and time formats (LocalDateTime)
             objectMapper.registerModule(new JavaTimeModule());
 
+            // Enable pretty-printing for JSON output
             objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
+            // Serialize the Conference object to a JSON string
             String json = objectMapper.writeValueAsString(conf);
             System.out.println(json);
 
+            // Write the JSON representation of the Conference object to a file named "conference.json"
             objectMapper.writeValue(new File("conference.json"), conf);
             System.out.println("La conférence a été écrite dans le fichier conference.json");
         } catch (Exception e) {
