@@ -1,0 +1,15 @@
+{
+  "text" : "Conference Energy",
+  "dateEvent" : "2024-09-03T18:00:00",
+  "topic" : "ENVIRONMENT",
+  "price" : 0.0,
+  "guests" : [ {
+    "firstname" : "Bob",
+    "lastname" : "Sull",
+    "topics" : [ "ENVIRONMENT", "ENERGY" ]
+  }, {
+    "firstname" : "Boby",
+    "lastname" : "Skull",
+    "topics" : [ "IT", "ENERGY" ]
+  } ]
+}

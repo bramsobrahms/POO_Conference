@@ -1,6 +1,7 @@
 package be.brahms.poo_conference;
 
 import be.brahms.poo_conference.Topic.Topic;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
@@ -65,6 +66,28 @@ public class PooConferenceApplication {
         } catch (Exception e) {
             // If any exception occurs during the process, it will be caught here,
             // and the stack trace will be printed to help diagnose the error.
+            e.printStackTrace();
+        }
+
+        try {
+            ArrayList<Guest> guests = new ArrayList<>();
+            guests.add(new Guest("Bob", "Sull", new ArrayList<>(List.of(Topic.ENVIRONMENT, Topic.ENERGY))));
+            guests.add(new Guest("Boby", "Skull", new ArrayList<>(List.of(Topic.IT, Topic.ENERGY))));
+
+            Conference conf = new Conference("Conference Energy", "2024-09-03T18:00:00", Topic.ENVIRONMENT, 0d, guests);
+
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            objectMapper.registerModule(new JavaTimeModule());
+
+            objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+            String json = objectMapper.writeValueAsString(conf);
+            System.out.println(json);
+
+            objectMapper.writeValue(new File("conference.json"), conf);
+            System.out.println("La conférence a été écrite dans le fichier conference.json");
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
