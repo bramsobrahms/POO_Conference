@@ -1,0 +1,9 @@
+<Conference title="Conférence low emission IT" date="2024-09-02T18:00:00" price="30.0">
+  <topic>IT</topic>
+  <guest>
+    <firstname>Bob</firstname>
+    <lastname>Sull</lastname>
+    <skill>IT</skill>
+    <skill>ENVIRONMENT</skill>
+  </guest>
+</Conference>

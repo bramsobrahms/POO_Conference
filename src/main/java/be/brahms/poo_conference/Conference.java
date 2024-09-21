@@ -2,6 +2,8 @@ package be.brahms.poo_conference;
 
 import be.brahms.poo_conference.Exception.MissingTopicException;
 import be.brahms.poo_conference.Topic.Topic;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -16,15 +18,26 @@ public class Conference extends Event implements Applicable{
     /**
      * The topic of the conference
      */
+    @JacksonXmlProperty(isAttribute = false, localName = "topic")
     private Topic topic;
+
     /**
      * The entrance price for the conference
      */
+    @JacksonXmlProperty(isAttribute = true, localName = "price")
     private double price;
+
     /**
      * The list of guests attending the conference.
      */
+    @JacksonXmlElementWrapper(useWrapping = false)
+    @JacksonXmlProperty(localName = "guest")
     private ArrayList<Guest> guests;
+
+    public Conference() {
+        super(null,null);
+        this.guests = new ArrayList<>();
+    }
 
     /**
      * Constructs a new {@code Conference} instance with a topic, a price, and a list of guests.
@@ -39,7 +52,7 @@ public class Conference extends Event implements Applicable{
         super(text, LocalDateTime.parse(dateEvent));
         this.topic = topic;
         this.price = price;
-        this.guests = new ArrayList<>();
+        this.guests = guests;
     }
 
     /**
@@ -142,7 +155,9 @@ public class Conference extends Event implements Applicable{
     @Override
     public String toString() {
         return "Conference{" +
-                "topic=" + topic +
+                "text='" + getText() + '\'' +
+                ", dateEvent='" + getDateEvent() + '\'' +
+                ", topic=" + topic +
                 ", price=" + price +
                 ", guests=" + guests +
                 '}';

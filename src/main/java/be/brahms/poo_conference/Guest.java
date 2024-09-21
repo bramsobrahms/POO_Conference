@@ -1,14 +1,20 @@
 package be.brahms.poo_conference;
 
 import be.brahms.poo_conference.Topic.Topic;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 import java.util.ArrayList;
 
 public class Guest {
 
     //Variables
+    @JacksonXmlProperty(localName = "firstname")
     private String firstname;
+    @JacksonXmlProperty(localName = "lastname")
     private String lastname;
+    @JacksonXmlElementWrapper(useWrapping = false)
+    @JacksonXmlProperty(localName = "skill")
     private ArrayList<Topic> topics;
 
     //Constructor without params
