@@ -1,4 +1,8 @@
 # POO_Conference
+
+
+<h3></h3>
+<p> This project is made for unit tests, to create an XML or Json file with the information coming conference class </p>
 <ul>
   <li>Create classes Abstract</li>
   <li>Create class Interface</li>
